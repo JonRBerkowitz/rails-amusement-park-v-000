@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsAmusementPark</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="V6lyh8BqsK91WOKkj2brqybVchUYAQX6p/hzNf0zAF/Lf+Yat9Ydwf4MEGyhSYxpf9PRdHQ725VrAiQ3jaAxbg==" />
+
+    <link rel="stylesheet" media="all" href="/assets/application-769c1912d961603b900b009b8d6fee74a531a1cd3b2acb652e7551930f60a1aa.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-ea948cf6d7d6990260bea2ea504692090a4d67393184dbd669ff06e58c696c55.js" data-turbolinks-track="reload"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="https://flatiron-amusement-park.herokuapp.com/"/>Home</a>
+
+          <a class="navbar-brand" href="/users/new"/>Sign Up</a>
+          <a class="navbar-brand" href="/signin">Log in</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="container"  role="main">
+
+      <%= form_for @user do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :height %>
+          <%= f.text_field :height, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :happiness %>
+          <%= f.text_field :happiness, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :nausea %>
+          <%= f.text_field :nausea, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :tickets %>
+          <%= f.text_field :tickets, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :admin, "Check box if you are a theme park owner"%>
+          <%= f.check_box :admin %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+
+        <%= f.submit class: "btn btn-primary"%>
+      <%end%>
+
+    </div>
+  </body>
+</html>
