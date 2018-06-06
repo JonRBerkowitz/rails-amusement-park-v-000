@@ -38,7 +38,7 @@
       <div class="form-group">
         <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
           <%= f.label :name, 'Your name'%><br>
-          <%= collection_select(:user, :id, @users, :id, :name, prompt: 'Please select your username from this dropdown') %><br><br>
+          <%= collection_select(:user, :name, @users, :id, :name, prompt: 'Please select your username from this dropdown') %><br><br>
           <%= f.label :password, 'Your password'%><br>
           <%= f.password_field :password %>
           <div class="actions">
