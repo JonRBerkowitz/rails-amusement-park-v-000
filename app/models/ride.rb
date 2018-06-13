@@ -3,14 +3,17 @@ class Ride < ActiveRecord::Base
   belongs_to :user
 
   def take_ride
-    user = User.find_by_id(self.user_id)
-    attraction = Attraction.find_by_id(self.attraction_id)
-
+    user = User.find_by(:id => self.user_id)
+    attraction = Attraction.find_by(:id => self.attraction_id)
     if user.tickets >= attraction.tickets
-      user.tickets = user.tickets - attraction.tickets
-      user.nausea = user.nausea + attraction.nausea_rating
-      user.happiness = user.happiness + attraction.happiness_rating
-      user.save
+      new_tickets = user.tickets - attraction.tickets
+      new_nausea = user.nausea + attraction.nausea_rating
+      new_happiness = user.happiness + attraction.happiness_rating
+      self.user.update(
+      :happiness => new_happiness,
+      :nausea => new_nausea,
+      :tickets => new_tickets
+    )
     end
 
     if user.tickets < attraction.tickets && user.height < attraction.min_height

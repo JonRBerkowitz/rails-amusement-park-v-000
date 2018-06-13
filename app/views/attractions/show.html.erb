@@ -1,1 +1,10 @@
-show it
+<h1><%= @attraction.name %></h1>
+<p>Tickets: <%= @attraction.tickets%></p>
+<p>Happiness: <%= @attraction.happiness_rating%></p>
+<p>Nausea: <%= @attraction.nausea_rating%></p>
+<p>Min Height: <%= @attraction.min_height %></p>
+<%= form_tag("/ride", method: "post") do %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <%= hidden_field_tag :attraction_id, @attraction.id %>
+  <%= submit_tag("Go on this ride") %>
+<% end %>
